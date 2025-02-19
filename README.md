@@ -39,3 +39,7 @@ import aporia.parser
 
 Dependency management and the publishing of packages is managed by [uv](https://github.com/astral-sh/uv).
 You can install it with `pip install uv`. The interpreter can be run with `uv run aporia`
+
+## Acknowledgements
+
+This project builds upon the work done in the seminar Interpretation and Compilation of Programming Languages at the University of Basel. Thanks to the contributions of Paul Tröger and Gianluca Klimmer, as well as the guidance from the seminar instructors Ali Ajorian and Erick Lavoie.
