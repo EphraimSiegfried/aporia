@@ -1,11 +1,5 @@
 import unittest
-import aporia.parser.parser as parser
-import aporia.interpreter as interpreter
-
-def interpret(source:str):
-    ast = parser.parse(source)
-    return interpreter.InterpLcfi().interp(ast)
-
+from tests.util import interpret
 
 class TestArithmetic(unittest.TestCase):
     def test_order_of_operations(self):
