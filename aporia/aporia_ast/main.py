@@ -146,12 +146,15 @@ class Stmt(AST):
 class PrintInst(Inst):
     __match_args__ = ("string", "exp")
 
-    def __init__(self, string: str, exp: Exp) -> None:
+    def __init__(self, string: str, exp: Optional[Exp]) -> None:
         self.string = string
         self.exp = exp
 
     def __str__(self):
-        return f"print(\"{self.string}\", {self.exp})"
+        if self.exp:
+            return f"print(\"{self.string}\", {self.exp})"
+        else:
+            return f"print(\"{self.string}\")"
 
 
 class ExpInst(Inst):
