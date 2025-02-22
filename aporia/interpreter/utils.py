@@ -116,7 +116,7 @@ def _(value: int):
 
 @format_for_print.register
 def _(value: float):
-  return str(int(value))
+  return str(value)
 
 #assignments
 def format_for_assign(to_type, value):
