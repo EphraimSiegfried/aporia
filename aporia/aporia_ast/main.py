@@ -323,4 +323,9 @@ class BinOp(Exp):
         self.right = right
 
     def __str__(self):
-        return f"{self.left} {self.op} {self.right}"
+        match self.right:
+            case Constant() | Bools() | Var():
+                return f"{self.left} {self.op} {self.right}"
+            case _:
+                return f"{self.left} {self.op} ({self.right})"
+
