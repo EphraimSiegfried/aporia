@@ -44,7 +44,7 @@ def apply_sub(left, right):
 
 def apply_mult(left, right):
   if isinstance(left, (int, float)) and isinstance(right, (int, float)):
-    return int(left * right)
+    return left * right
   else:
     raise Exception("Apply Mult: Expected int or float type got values:", left, right)
   
@@ -52,7 +52,7 @@ def apply_div(left, right):
   if isinstance(left, (int, float)) and isinstance(right, (int, float)):
     if right == 0:
       raise Exception("Divide by 0 Error.")
-    return int(left / right)
+    return left / right
   else:
     raise Exception("Apply Div: Expected int or float type got values:", left, right)
 
@@ -60,7 +60,7 @@ def apply_mod(left, right):
   if isinstance(left, (int, float)) and isinstance(right, (int, float)):
     if right == 0:
       raise Exception("Divide by 0 Error.")
-    return int(left % right)
+    return left % right
   else:
     raise Exception("Apply Mod: Expected int or float type got values:", left, right)
 
@@ -130,6 +130,6 @@ def format_for_assign(to_type, value):
           return value % 2 != 0
 
     case Int() | Float():
-      return int(value)
+      return value
 
   raise Exception("Variable assignment not allowed: Trying to assign value {} to type {}.".format(value, to_type))
