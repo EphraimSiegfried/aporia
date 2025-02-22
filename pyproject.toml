@@ -1,6 +1,6 @@
 [project]
 name = "aporia-interpreter"
-version = "0.1.2"
+version = "0.1.6"
 description = "An interpreter for the Aporia language"
 readme = "README.md"
 license = { file = "LICENSE" }
