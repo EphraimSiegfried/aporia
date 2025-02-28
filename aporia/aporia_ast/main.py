@@ -308,12 +308,9 @@ class UnaryOp(Exp):
         self.operand = operand
 
     def __str__(self):
-        match self.operand:
-            case Constant() | Bools() | Var():
-                return f"{self.op}{self.operand}"
-            case _:
-                return f"{self.op}({self.operand})"
-
+        leaf_type  = (Constant, Bools, Var)
+        operand = self.operand if isinstance(self.operand, leaf_type) else f"({self.operand})"
+        return f"{self.op} {operand}"
 
 class BinOp(Exp):
     __match_args__ = ("left", "op", "right")
@@ -326,9 +323,7 @@ class BinOp(Exp):
         self.right = right
 
     def __str__(self):
-        match self.right:
-            case Constant() | Bools() | Var():
-                return f"{self.left} {self.op} {self.right}"
-            case _:
-                return f"{self.left} {self.op} ({self.right})"
-
+        leaf_type = (Constant, Bools, Var)
+        left = self.left if isinstance(self.left, leaf_type) else f"({self.left})"
+        right = self.right if isinstance(self.right, leaf_type) else f"({self.right})"
+        return f"{left} {self.op} {right}"
