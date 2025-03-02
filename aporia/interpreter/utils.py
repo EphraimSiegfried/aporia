@@ -132,4 +132,4 @@ def format_for_assign(to_type, value):
     case Int() | Float():
       return value
 
-  raise Exception("Variable assignment not allowed: Trying to assign value {} to type {}.".format(value, to_type))
+  raise Exception(f"Variable assignment not allowed: Trying to assign value {value} to type {to_type}.")

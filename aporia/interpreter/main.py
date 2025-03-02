@@ -48,7 +48,7 @@ class InterpLcfi:
       case Var(name):
         value = env[name]["value"]
         if value is None or not isinstance(env[name]["type"], Bool):
-          raise Exception("Prediction variable {} is not a boolean.".format(name))
+          raise Exception(f"Prediction variable {name} is not a boolean.")
         return value
 
   def interp_inst(self, inst, env):
@@ -57,7 +57,7 @@ class InterpLcfi:
         if assign.var.name in env.keys():
           env[assign.var.name]["value"] = utils.format_for_assign(env[assign.var.name]["type"], self.interp_exp(assign.exp, env))
         else:
-          raise Exception("Variable {} was not declared.".format(assign.var.name))
+          raise Exception(f"Variable {assign.var.name} was not declared.")
       case PrintInst(string, exp):
         if exp is None and string is None:
           return ""
