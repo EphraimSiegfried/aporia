@@ -1,4 +1,6 @@
 from functools import singledispatch
+from unittest import case
+
 from aporia.aporia_ast import *
 
 # apply functions type check and execute operands
@@ -129,7 +131,9 @@ def format_for_assign(to_type, value):
         case int() | float():
           return value % 2 != 0
 
-    case Int() | Float():
+    case Float():
       return value
+    case Int():
+      return int(value)
 
   raise Exception(f"Variable assignment not allowed: Trying to assign value {value} to type {to_type}.")
