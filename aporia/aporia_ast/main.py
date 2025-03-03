@@ -310,7 +310,7 @@ class UnaryOp(Exp):
     def __str__(self):
         leaf_type  = (Constant, Bools, Var)
         operand = self.operand if isinstance(self.operand, leaf_type) else f"({self.operand})"
-        return f"{self.op} {operand}"
+        return f"{self.op}{operand}"
 
 class BinOp(Exp):
     __match_args__ = ("left", "op", "right")
