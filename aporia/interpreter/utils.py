@@ -49,14 +49,14 @@ def apply_mult(left, right):
     return left * right
   else:
     raise Exception("Apply Mult: Expected int or float type got values:", left, right)
-  
+
 def apply_div(left, right):
-  if isinstance(left, (int, float)) and isinstance(right, (int, float)):
-    if right == 0:
-      raise Exception("Divide by 0 Error.")
-    return left / right
-  else:
+  ops = (left, right)
+  if not all(isinstance(op, (float, int)) for op in ops):
     raise Exception("Apply Div: Expected int or float type got values:", left, right)
+  if right == 0:
+    raise Exception("Divide by 0 Error.")
+  return left / right if any(isinstance(op, float) for op in ops) else left // right
 
 def apply_mod(left, right):
   if isinstance(left, (int, float)) and isinstance(right, (int, float)):
