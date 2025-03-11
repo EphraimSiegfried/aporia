@@ -35,7 +35,7 @@ class TestArithmetic(unittest.TestCase):
 
     def test_division(self):
         source = """
-        float a
+        int a
         true: a = 1
         true: print("", a / 2.0)
         """
@@ -44,6 +44,14 @@ class TestArithmetic(unittest.TestCase):
     def test_division2(self):
         source = """
         float a
+        true: a = 1
+        true: print("", a / 2)
+        """
+        self.assertEqual('0.5', interpret(source))
+
+    def test_division3(self):
+        source = """
+        int a
         true: a = 1
         true: print("", a / 2)
         """

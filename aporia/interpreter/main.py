@@ -79,7 +79,10 @@ class InterpLcfi:
       case Constant(value) | Bools(value):
         return value
       case Var(name):
-        return env[name]["value"]
+        value = env[name]["value"]
+        if isinstance(env[name]["type"], Float):
+          return float(value)
+        return value
       case UnaryOp(Not(), operand):
         return utils.apply_not(self.interp_exp(operand, env))
       case UnaryOp(USub(), operand):
