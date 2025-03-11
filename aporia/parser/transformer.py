@@ -10,6 +10,7 @@ from aporia.aporia_ast import (
     Bools,
     Declar,
     Div,
+    FloorDiv,
     Eq,
     ExpInst,
     Float,
@@ -166,6 +167,8 @@ class LcfiTransformer(Transformer[Any, L_cfi]):
                 return Sub()
             case "*":
                 return Mult()
+            case "//":
+                return FloorDiv()
             case "/":
                 return Div()
             case "%":

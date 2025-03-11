@@ -100,6 +100,8 @@ class InterpLcfi:
             return utils.apply_mult(self.interp_exp(left, env), self.interp_exp(right, env))
           case BinOp(left, Div(), right):
             return utils.apply_div(self.interp_exp(left, env), self.interp_exp(right, env))
+          case BinOp(left, FloorDiv(), right):
+            return utils.apply_floor_div(self.interp_exp(left, env), self.interp_exp(right, env))
           case BinOp(left, Mod(), right):
             return utils.apply_mod(self.interp_exp(left, env), self.interp_exp(right, env))
       case BinOp(_, Comparator(), _):

@@ -52,11 +52,11 @@ class TestArithmetic(unittest.TestCase):
     def test_floor_division(self):
         source = """
         int a, b
-        true: a = 1
-        true: b = a / 2
+        true: a = 28
+        true: b = a // 5
         true: print("", b)
         """
-        self.assertEqual('0', interpret(source))
+        self.assertEqual('5', interpret(source))
 
     def test_floor_division2(self):
         source = """

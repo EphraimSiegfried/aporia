@@ -246,6 +246,9 @@ class Div(BinaryNumOperator):
     def __str__(self):
         return "/"
 
+class FloorDiv(BinaryNumOperator):
+    def __str__(self):
+        return "//"
 
 class Mod(BinaryNumOperator):
     def __str__(self):

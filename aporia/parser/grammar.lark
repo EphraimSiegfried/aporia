@@ -37,7 +37,7 @@ print_inst: "print" "(" STRING "," exp ")"
     | sum (PLUS | MINUS) product     -> binop
 
 ?product: unary
-         | product (TIMES | DIVIDE | MODULO) unary -> binop
+         | product (TIMES | DIVIDE | FLOOR_DIVIDE | MODULO) unary -> binop
 
 ?unary: NOT unary                    -> unaryop
        | MINUS unary                 -> unaryop
@@ -83,6 +83,7 @@ PLUS: "+"
 MINUS: "-"
 TIMES: "*"
 DIVIDE: "/"
+FLOOR_DIVIDE: "//"
 MODULO: "%"
 
 NOT: "!"
