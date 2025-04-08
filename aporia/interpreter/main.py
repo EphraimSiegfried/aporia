@@ -70,7 +70,8 @@ class InterpLcfi:
             exp = utils.format_for_print(self.interp_exp(exp, env))
           return string + exp
       case ExpInst(exp):
-        return str(self.interp_exp(exp, env))
+        self.interp_exp(exp, env)
+        return ""
       case _:
         raise Exception("Function interp_inst received unexpected object.")
   
